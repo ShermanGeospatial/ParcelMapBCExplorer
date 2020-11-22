@@ -113,7 +113,7 @@
       // Initialize D3 to access your table
       function init() {
           map.addSource('ParcelMapVector', {
-              type: 'vector',
+              type: 'raster',
               url: 'https://openmaps.gov.bc.ca/geo/pub/WHSE_CADASTRE.PMBC_PARCEL_FABRIC_POLY_SVW/ows?service=WMS&request=GetMap'
           })
         //d3.csv('/home/dennis/Documents/SurveyMissionPlanner/Datasets/RMOW_pts_UTM.csv', addPoints);
