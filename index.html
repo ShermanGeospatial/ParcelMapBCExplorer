@@ -10,7 +10,6 @@
     <script src="https://api.mapbox.com/mapbox-gl-js/v1.7.0/mapbox-gl.js"></script>
     <link href="https://api.mapbox.com/mapbox-gl-js/v1.7.0/mapbox-gl.css" rel="stylesheet" />
     <script src='https://d3js.org/d3.v4.min.js'></script>
-    <link rel="stylesheet" href="style.css">
 
   </head>
   <style>
@@ -110,7 +109,6 @@
         init();
       });
 
-      // Initialize D3 to access your table
       function init() {
           map.addSource('ParcelMapVector', {
               type: "raster",
