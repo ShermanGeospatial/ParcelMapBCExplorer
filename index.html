@@ -117,32 +117,6 @@
           })
         //d3.csv('/home/dennis/Documents/SurveyMissionPlanner/Datasets/RMOW_pts_UTM.csv', addPoints);
       }
-
-
-      // create a function called addPoints that iterates through your table (row by row) to create markers and popups
-      function addPoints(data) {
-
-        // iterate through your table to set the marker to lat/long values for each row
-
-        data.forEach(function(row) {
-
-          // create a variable for your popup and populate your popup with information from your table
-          var popup = new mapboxgl.Popup()
-            .setHTML(`<h3>` + row.OBJECTID + `</h3>` + '<h4>' + '<b>' + 'Northing: ' + '</b>' + row.NORTHING + '</h4>' + '<h4>' + '<b>' + 'Easting: ' + '</b>' + row.EASTING + '</h4>'); // use the table to populate your popup with text
-
-
-          // create a variable for your markup and add it to the map 
-          var marker = new mapboxgl.Marker({
-              color: 'purple'
-            })
-            .setLngLat([row.LONGITUDE, row.LATITUDE])
-            .setPopup(popup)
-            .addTo(map); // add the marker to the map
-
-
-        });
-      }
-
     </script>
   </body>
 
