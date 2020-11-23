@@ -110,7 +110,7 @@
       });
 
       function init() {
-          map.addSource('ParcelMapVector', {
+         /* map.addSource('ParcelMapVector', {
               type: "vector",
               url: `https://openmaps.gov.bc.ca/geo/pub/WHSE_CADASTRE.PMBC_PARCEL_FABRIC_POLY_SVW/ows?
               request=GetMap
@@ -123,7 +123,10 @@
               &width=256
               &height=256
               &format=application/x-protobuf;type=mapbox-vector`
-          })
+          })*/
+          var wmsLayer = L.tileLayer.wms('https://openmaps.gov.bc.ca/geo/pub/WHSE_CADASTRE.PMBC_PARCEL_FABRIC_POLY_SVW/ows?',{
+              layers: 'pub:WHSE_CADASTRE.PMBC_PARCEL_FABRIC_POLY_SVW'
+          }).addTo(map);
       }
     </script>
   </body>
