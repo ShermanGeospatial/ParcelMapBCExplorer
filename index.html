@@ -100,8 +100,8 @@
 
       function init() {
          map.addSource('ParcelMapVector', {
-              type: 'vector',
-              url: `https://openmaps.gov.bc.ca/geo/pub/WHSE_CADASTRE.PMBC_PARCEL_FABRIC_POLY_SVW/ows?
+              'type': 'vector',
+              'url': `https://openmaps.gov.bc.ca/geo/pub/WHSE_CADASTRE.PMBC_PARCEL_FABRIC_POLY_SVW/ows?
               request=GetMap
               &service=WMS
               &version=1.3.0
@@ -112,6 +112,12 @@
               &width=256
               &height=256
               &format=application/x-protobuf;type=mapbox-vector`
+          })
+
+          map.addLayer('pmbc',{
+              'id': 'pub:WHSE_CADASTRE.PMBC_PARCEL_FABRIC_POLY_SVW',
+              'source': 'ParcelMapVector',
+              'type': 'vector'
           })
       }
     </script>
