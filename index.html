@@ -99,8 +99,8 @@
       });
 
       function init() {
-         /*map.addSource('ParcelMapVector', {
-              type: "vector",
+         map.addSource('ParcelMapVector', {
+              type: 'vector',
               url: `https://openmaps.gov.bc.ca/geo/pub/WHSE_CADASTRE.PMBC_PARCEL_FABRIC_POLY_SVW/ows?
               request=GetMap
               &service=WMS
@@ -112,10 +112,6 @@
               &width=256
               &height=256
               &format=application/x-protobuf;type=mapbox-vector`
-          })*/
-          map.addSource('USA',{
-              type: 'raster',
-              url: 'https://www.gebco.net/data_and_products/gebco_web_services/2019/mapserv?request=getmap&service=wms&BBOX=-180,-90,180,90&srs=EPSG:4326&format=image/jpeg&layers=gebco_2019_grid_2&width=1200&height=600&version=1.1.1'
           })
       }
     </script>
