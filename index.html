@@ -96,7 +96,7 @@
 
     <div id="map"></div>
     <pre id="features"></pre>
-    
+
     <script>
 
       //YOUR TURN: add your Mapbox access token 
@@ -134,6 +134,8 @@
             displayProperties.forEach(function (prop) {
                 displayFeat[prop] = feat[prop];
             });
+
+            displayFeat['cords'] = JSON.stringify(e.lngLat.wrap())
             return displayFeat;
         });
 
