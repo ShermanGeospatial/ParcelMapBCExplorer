@@ -10,6 +10,7 @@
     <script src="https://api.mapbox.com/mapbox-gl-js/v1.7.0/mapbox-gl.js"></script>
     <link href="https://api.mapbox.com/mapbox-gl-js/v1.7.0/mapbox-gl.css" rel="stylesheet" />
     <script src='https://d3js.org/d3.v4.min.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.6.3/proj4.js"></script>
 
   </head>
   <style>
@@ -114,37 +115,24 @@
         map.addControl(new mapboxgl.NavigationControl());
       });
 
-      map.on('mousemove', function (e) {
-        var features = map.queryRenderedFeatures(e.point);
+      map.on('moveend', function () {
+            var features = map.queryRenderedFeatures({ layers: ['pub:WHSE_CADASTRE.PMBC_PARCEL_FABRIC_POLY_SVW'] });
 
-        // Limit the number of properties we're displaying for
-        // legibility and performance
-        var displayProperties = [
-            //'type',
-            'properties',
-            //'id',
-            //'layer',
-            //'source',
-            //'sourceLayer',
-            //'state'
-        ];
-
-        var displayFeatures = features.map(function (feat) {
-            var displayFeat = {};
-            displayProperties.forEach(function (prop) {
-                displayFeat[prop] = feat[prop];
+            var displayFeatures = features.map(function (feat) {
+                var displayFeat = {};
+                displayFeat['pub:PID'] = feat['pub:PID'];
+                displayFeat['cords'] = JSON.stringify(e.lngLat.wrap());
+                return displayFeat;
             });
 
-            displayFeat['cords'] = JSON.stringify(e.lngLat.wrap())
-            return displayFeat;
+            if (features) {
+                document.getElementById('features').innerHTML = JSON.stringify(
+                displayFeatures,
+                null,
+                2
+            );
+          }
         });
-
-        document.getElementById('features').innerHTML = JSON.stringify(
-            displayFeatures,
-            null,
-            2
-        );
-      });
       function init() {
          /*map.addSource('ParcelMap', {
               'type': 'geojson',
