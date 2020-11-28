@@ -118,8 +118,8 @@
               'id': 'pub:WHSE_CADASTRE.PMBC_PARCEL_FABRIC_POLY_SVW',
               'type': 'line',
               'source':{
-                  'type':'raster',
-                  'tiles':[`https://openmaps.gov.bc.ca/geo/pub/WHSE_CADASTRE.PMBC_PARCEL_FABRIC_POLY_SVW/ows?request=GetMap&service=WMS&version=1.3.0&layer=WHSE_CADASTRE.PMBC_PARCEL_FABRIC_POLY_SVW&styles=&crs=EPSG:3857&bbox=-1.5493255536462389E7,6041214.772851668,-1.2284482001521327E7,8533168.554633766&width=256&height=256&format=image/png`
+                  'type':'vector',
+                  'url':[`https://openmaps.gov.bc.ca/geo/pub/WHSE_CADASTRE.PMBC_PARCEL_FABRIC_POLY_SVW/ows?request=GetMap&service=WMS&version=1.3.0&layers=pub:WHSE_CADASTRE.PMBC_PARCEL_FABRIC_POLY_SVW&styles=&crs=EPSG:3005&bbox=273875.663,362346.895,1870571.76,1735670.856&width=256&height=256&format=application/json;type=geojson`
                   ]
               },
               'tileSize': 256,
@@ -130,3 +130,5 @@
   </body>
 
 </html>
+
+//https://openmaps.gov.bc.ca/geo/pub/wms?service=WMS&version=1.3.0&request=GetMap&layers=pub:WHSE_BASEMAPPING.DBM_BC_7H_MIL_BATHYMETRC_POLY&styles=&bbox=273875.663,362346.895,1870571.76,1735670.856&width=512&height=440&crs=EPSG:3005&format=application/json;type=geojson
