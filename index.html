@@ -115,7 +115,7 @@
                   'tileSize':256
               }*/
 
-            map.addLayer('PMBC',{
+            map.addLayer({
               'id': 'pub:WHSE_CADASTRE.PMBC_PARCEL_FABRIC_POLY_SVW',
               'type': 'line',
               'source':{
@@ -132,7 +132,9 @@
                   'line-color': '#877b59',
                   'line-width': 1
               }
-          });
+          },
+          'PMBC'
+          );
       }
     </script>
   </body>
