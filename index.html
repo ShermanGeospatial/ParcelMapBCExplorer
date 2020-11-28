@@ -134,40 +134,30 @@
           }
         });
       function init() {
-         /*map.addSource('ParcelMap', {
-              'type': 'geojson',
-              'url': `https://openmaps.gov.bc.ca/geo/pub/WHSE_CADASTRE.PMBC_PARCEL_FABRIC_POLY_SVW/ows?request=GetMap&service=WMS&version=1.3.0&layers=WHSE_CADASTRE.PMBC_PARCEL_FABRIC_POLY_SVW&styles=&crs=EPSG:4326&bbox=-139.0522011144567,47.63214144257169,-110.42769916022715,60.598524356488305&width=256&height=256&format=application/json;type=geojson`
-          });*/
 
-          /*map.addLayer({
-              'id': 'pub:WHSE_CADASTRE.PMBC_PARCEL_FABRIC_POLY_SVW',
-              'type': 'raster',
-              'source':{
-                  'type':'raster',
-                  'tiles':[`https://openmaps.gov.bc.ca/geo/pub/WHSE_CADASTRE.PMBC_PARCEL_FABRIC_POLY_SVW/ows?request=GetMap&service=WMS&version=1.3.0&layers=WHSE_CADASTRE.PMBC_PARCEL_FABRIC_POLY_SVW&styles=&crs=EPSG:4326&bbox=-139.0522011144567,47.63214144257169,-110.42769916022715,60.598524356488305&width=256&height=256&format=image/png`
-                  ],
-                  'tileSize':256
-              }*/
+        map.addSource('PMBC',{
+            'type':'vector',
+            'tiles':[`https://openmaps.gov.bc.ca/geo/ows?REQUEST=GetMap&SERVICE=WMS&VERSION=1.3.0&LAYERS=pub:WHSE_CADASTRE.PMBC_PARCEL_FABRIC_POLY_SVW&STYLES=&CRS=EPSG:3857&BBOX=-15479220.221745186,6045873.0184186315,-12292755.23998929E7,8534215.479697945&WIDTH=256&HEIGHT=256&FORMAT=application/x-protobuf;type=mapbox-vector&TILED=true`
+            ],
+            "minzoom": 11,
+            "minzoom": 11
+            });
 
-            map.addLayer({
-              'id': 'pub:WHSE_CADASTRE.PMBC_PARCEL_FABRIC_POLY_SVW',
-              'type': 'line',
-              'source':{
-                  'type':'vector',
-                  'tiles':[`https://openmaps.gov.bc.ca/geo/ows?REQUEST=GetMap&SERVICE=WMS&VERSION=1.3.0&LAYERS=pub:WHSE_CADASTRE.PMBC_PARCEL_FABRIC_POLY_SVW&STYLES=&CRS=EPSG:3857&BBOX=-15479220.221745186,6045873.0184186315,-12292755.23998929E7,8534215.479697945&WIDTH=256&HEIGHT=256&FORMAT=application/x-protobuf;type=mapbox-vector&TILED=true`
-                  ],
-                  "minzoom": 11
-              },
-              'source-layer': 'PMBC_PARCEL_FABRIC_POLY_SVW',
-              'layout': {
-                  'line-cap': 'round',
-                  'line-join': 'round',
-                  'visibility': 'visible'
-              },
-              'paint': {
-                  'line-color': '#877b59',
-                  'line-width': 1
-              }
+        map.addLayer({
+            'id': 'pub:WHSE_CADASTRE.PMBC_PARCEL_FABRIC_POLY_SVW',
+            'type': 'line',
+            'source': 'PMBC',
+            'source-layer': 'PMBC_PARCEL_FABRIC_POLY_SVW',
+            'layout': {
+                'line-cap': 'round',
+                'line-join': 'round',
+                'visibility': 'visible'
+            },
+            'paint': {
+                'line-opacity': 0.6,
+                'line-color': '#877b59',
+                'line-width': 1
+            }
           }
         );
       }
