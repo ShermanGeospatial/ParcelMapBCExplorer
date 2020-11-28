@@ -112,35 +112,35 @@
         map.addControl(new mapboxgl.NavigationControl());
       });
 
-      map.on("mousemove", function(e){
+      map.on('mousemove', function (e) {
+        var features = map.queryRenderedFeatures(e.point);
 
-          var features = map.queryRenderedFeatures(e.point);
-          
-          var displayProperties = [
-              'type',
-              'properties',
-              'id',
-              'layer',
-              'source',
-              'sourceLayer',
-              'state'
-          ];
+        // Limit the number of properties we're displaying for
+        // legibility and performance
+        var displayProperties = [
+            'type',
+            'properties',
+            'id',
+            'layer',
+            'source',
+            'sourceLayer',
+            'state'
+        ];
 
-          var displayFeatures = features.map(function (feat) {
-              var displayFeat = {};
-              displayProperties.forEach(function (prop){
-                  displayFeat[prop] = feat[prop];
-              });
-              return displayFeat;
-          });
+        var displayFeatures = features.map(function (feat) {
+            var displayFeat = {};
+            displayProperties.forEach(function (prop) {
+                displayFeat[prop] = feat[prop];
+            });
+            return displayFeat;
+        });
 
-          document.getElementById('features').innerHTML = JSON.stringify(
-              displayFeatures,
-              null,
-              2
-          );
+        document.getElementById('features').innerHTML = JSON.stringify(
+            displayFeatures,
+            null,
+            2
+        );
       });
-      
       function init() {
          /*map.addSource('ParcelMap', {
               'type': 'geojson',
