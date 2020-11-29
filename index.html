@@ -116,7 +116,7 @@
       });
 
       map.on('moveend', function () {
-        bbox['cords'] = JSON.stringify(map.getBounds());
+        var bbox['cords'] = JSON.stringify(map.getBounds());
 
         if (features) {
           document.getElementById('features').innerHTML = JSON.stringify(
